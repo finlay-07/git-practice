@@ -1,1 +1,2 @@
 Git and command line
+Git is used for version control
