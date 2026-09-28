@@ -1,0 +1,147 @@
+Terminal conversation
+
+Last login: Mon Sep 28 10:08:32 on ttys000
+ls
+➜  ~ ls
+Desktop           foundations_venv  Library           Pictures          Python_Challenges
+Documents         Git_practice      Movies            Projects
+Downloads         gitDir            Music             Public
+➜  ~ Git_practice
+➜  Git_practice ls
+git_folder_to_be_init
+➜  Git_practice git_folder_to_be_init
+➜  git_folder_to_be_init git:(main) ✗ ls
+repo_to_be_cloned
+➜  git_folder_to_be_init git:(main) ✗ ..
+➜  Git_practice mkdir practice_folder
+➜  Git_practice ls
+git_folder_to_be_init practice_folder
+➜  Git_practice practice_folder
+➜  practice_folder pwd                
+/Users/finlaymajor/Git_practice/practice_folder
+➜  practice_folder ls -lsa
+total 0
+0 drwxr-xr-x  2 finlaymajor  staff   64 28 Sep 16:02 .
+0 drwxr-xr-x  4 finlaymajor  staff  128 28 Sep 16:02 ..
+➜  practice_folder ls -la
+total 0
+drwxr-xr-x  2 finlaymajor  staff   64 28 Sep 16:02 .
+drwxr-xr-x  4 finlaymajor  staff  128 28 Sep 16:02 ..
+➜  practice_folder touch README.md
+➜  practice_folder echo "Git Practice" > README.md
+➜  practice_folder cat README.md
+Git Practice
+➜  practice_folder git init
+Initialized empty Git repository in /Users/finlaymajor/Git_practice/practice_folder/.git/
+➜  practice_folder git:(main) ✗ git status
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	README.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+➜  practice_folder git:(main) ✗ git add README.md
+➜  practice_folder git:(main) ✗ git status
+On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   README.md
+
+➜  practice_folder git:(main) ✗ git diff --staged
+➜  practice_folder git:(main) ✗ git commit -m "Add project README"
+[main (root-commit) fdbb46a] Add project README
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+➜  practice_folder git:(main) git log --oneline
+➜  practice_folder git:(main) touch notes.txt
+➜  practice_folder git:(main) ✗ echo "Git and command line" > notes.txt
+➜  practice_folder git:(main) ✗ git status
+On branch main
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	notes.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+➜  practice_folder git:(main) ✗ git add notes.txt
+➜  practice_folder git:(main) ✗ git commit -m "Add Git learning notes"
+[main d783b32] Add Git learning notes
+ 1 file changed, 1 insertion(+)
+ create mode 100644 notes.txt
+➜  practice_folder git:(main) git switch -c adding_more_notes
+Switched to a new branch 'adding_more_notes'
+➜  practice_folder git:(adding_more_notes) echo "Git is used for version control" >> notes.txt
+➜  practice_folder git:(adding_more_notes) ✗ git diff
+➜  practice_folder git:(adding_more_notes) ✗ git status
+On branch adding_more_notes
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   notes.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+➜  practice_folder git:(adding_more_notes) ✗ git add notes.txt
+➜  practice_folder git:(adding_more_notes) ✗ git diff --staged
+➜  practice_folder git:(adding_more_notes) ✗ git commit -m "added more notes"
+[adding_more_notes 26be8a9] added more notes
+ 1 file changed, 1 insertion(+)
+➜  practice_folder git:(adding_more_notes) git log --oneline
+➜  practice_folder git:(adding_more_notes) git log --oneline --graph --decorate --all
+➜  practice_folder git:(adding_more_notes) git swtich main
+git: 'swtich' is not a git command. See 'git --help'.
+
+The most similar command is
+	switch
+➜  practice_folder git:(adding_more_notes) git switch main
+Switched to branch 'main'
+➜  practice_folder git:(main) cat notes.txt
+Git and command line
+➜  practice_folder git:(main) git merge adding_more_notes
+Updating d783b32..26be8a9
+Fast-forward
+ notes.txt | 1 +
+ 1 file changed, 1 insertion(+)
+➜  practice_folder git:(main) cat notes.txt
+Git and command line
+Git is used for version control
+➜  practice_folder git:(main) git branch -d add_more_notes
+error: branch 'add_more_notes' not found
+➜  practice_folder git:(main) git branch -d adding_more_notes
+Deleted branch adding_more_notes (was 26be8a9).
+➜  practice_folder git:(main) git status
+On branch main
+nothing to commit, working tree clean
+➜  practice_folder git:(main) git log --oneline --graph --decorate --all
+➜  practice_folder git:(main) git remote add origin https://github.com/finlay-07/git-practice
+➜  practice_folder git:(main) git remote -v
+origin	https://github.com/finlay-07/git-practice (fetch)
+origin	https://github.com/finlay-07/git-practice (push)
+➜  practice_folder git:(main) git push -u origin main
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (9/9), 815 bytes | 815.00 KiB/s, done.
+Total 9 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/finlay-07/git-practice
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+➜  practice_folder git:(main) cd ..
+➜  Git_practice git clone https://github.com/finlay-07/git-practice git_practice_cloned
+Cloning into 'git_practice_cloned'...
+remote: Enumerating objects: 9, done.
+remote: Counting objects: 100% (9/9), done.
+remote: Compressing objects: 100% (6/6), done.
+remote: Total 9 (delta 0), reused 9 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (9/9), done.
+➜  Git_practice cd git_practice_cloned
+➜  git_practice_cloned git:(main) git log --oneline
+➜  git_practice_cloned git:(main) ..
+➜  Git_practice ls
+git_folder_to_be_init git_practice_cloned   practice_folder
+➜  Git_practice 
