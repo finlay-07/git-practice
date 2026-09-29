@@ -305,5 +305,60 @@ account.withdraw(100)
 
 #FILES
 
+#writing text
+with open("message.txt", "w", encoding="utf-8") as file:
+    file.write("Hello World")
+#this creates message.txt
+#w means write - if the file already exists, w replaces its contents
+
+#reading it
+with open("message.txt", "r", encoding="utf-8") as file:
+    contents = file.read()
+    print(contents)
+#r means read
+
+#appending it
+with open("message.txt", "a", encoding="utf-8") as file:
+    file.write("\n another line")
+#a means append to the end
+
+#JSON
+
+#json is very similar to python dictionaries, however they are different (JSON uses true not True)
+
+#python has a built in JSON module
+import json
+
+users = [ 
+    {
+        "name" : "Fin"
+        "active" : True
+    }
+]
+
+#save it
+with open("users.json", "w", encoding="utf-8") as file:
+    json.dump(users, file, indent = 2)
+
+#now we have users.json
+#json.dump converts python data and writes it into the file
+#indent = 2 makes it easier for humans to read
+
+#LOADING JSON
+import json
+
+with open("users.json", "r", encoding="utf-8") as file:
+    users = json.load(file)
+
+print(users) #would give normal python data
+
+#python list/dictionaries --> json.dump --> JSON FILE 
+#JSON FILE --> json.load --> python list/dictionaries
+
+#PACKAGES, PIP, AND VENV
+
+#pip installs python packages
+
+
 
 
